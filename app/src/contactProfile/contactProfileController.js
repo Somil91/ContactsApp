@@ -2,18 +2,30 @@
  * contactProfileController
  */
 
-contactManagerApp.controller('contactProfileController', ['$scope', function() {
+contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$stateParams','$state',
+  function($scope, SyncData, $stateParams, $state) {
 
-  this.addToFavorites = function(profileId) {
-    console.log('This is edit Profile Function');
+    var profile = this;
+    profile.selprofile = {};
+    profile.id = $stateParams.id;
+    if (profile.id) {
+      profile.selprofile = SyncData.findSelectedContact(profile.id);
+      profile.bannerText = 'Edit Contact';
+      profile.addedit = true;
+    } else {
+      profile.bannerText = 'Add Contact';
+      profile.addedit = false;
+    }
+
+    profile.editaddProfile = function() {
+    if (profile.addedit)
+      SyncData.editContact(profile.selprofile);
+
+    else
+      SyncData.addContact(profile.selprofile);
+
+    $state.go('contacts');
+
   };
 
-  this.editProfile = function(profileId) {
-    console.log('This is edit Profile Function');
-  };
-
-  this.deleteProfile = function(profileId) {
-    console.log('This is delete Profile Function');
-  };
-
-}]);
+  }]);

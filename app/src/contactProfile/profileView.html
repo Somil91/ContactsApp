@@ -1,0 +1,48 @@
+<!-- Contact Profile Edit Delete and Add Screen -->
+<h2 class="page-header text-center">{{profile.bannerText}}</h2>
+<form role="form" class="form-horizontal contract-form">
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Full name:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control contact-name-input" ng-model="profile.selprofile.name" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Email address:</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control contact-email-input" ng-model="profile.selprofile.email" >   
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Telephone number:</label>
+        <div class="col-sm-6">
+            <input type="tel" class="form-control contact-tel-input" ng-model="profile.selprofile.tel" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Twitter handle:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control contact-name-input" ng-model="profile.selprofile.twitter" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Facebook:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control contact-name-input" ng-model="profile.selprofile.facebook" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">LinkedIn:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control contact-name-input" ng-model="profile.selprofile.linkedIn" >
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-3">
+            <button type="submit" class="btn btn-outline btn-lg btn-block" ng-click="profile.editaddProfile()">Submit</button>
+        </div>
+        <div class="col-sm-3">
+            <button type="" class="btn btn-outline btn-lg btn-block" ui-sref="contact">Cancel</button>
+        </div>
+    </div>
+</form>

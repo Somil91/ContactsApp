@@ -2,16 +2,24 @@
  * mainAppController
  */
 
-contactManagerApp.controller('contactsListController', ['SyncData', function(SyncData) {
+contactManagerApp.controller('contactsListController', ['$scope','SyncData', function($scope,SyncData) {
 
-  this.allContacts = [];
-  var that = this;
+  var contactList = this;
+  contactList.allContacts = [];
   SyncData.getInitalData('./data/contacts.json')
                     .then(function(data) {
                       console.log('data Found Successfully all Contacts');
-                      that.allContacts = data;
+                      contactList.allContacts = data;
                     }, function(error) {
                       console.log('Error Calling frm main ctrl');
                     });
+
+  contactList.deleteContact = function(contactObj){
+  	contactList.allContacts = SyncData.deleteContact(contactObj);
+  }
+
+  contactList.addToFavorites = function(contactObj){
+  	contactList.allContacts = SyncData.addToFavorites(contactObj);
+  }
 
 }]);
