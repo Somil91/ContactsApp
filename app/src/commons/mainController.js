@@ -25,10 +25,10 @@ contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', fu
 
   SyncData.getInitalData('./data/contacts.json')
         .then(function(data) {
-          console.log('data Found Successfully all Contacts');
+          
           contacts.allContacts = data;
         }, function(error) {
-          console.log('Error Calling frm main ctrl');
+          
         });
 
   contacts.deleteContact = function(contactObj) {
