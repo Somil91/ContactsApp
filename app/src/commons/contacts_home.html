@@ -12,16 +12,12 @@
             <div class="form-group">
                 <label for="inputPassword" class="col-xs-2 control-label" style="padding-top: 6px;">Sort By:</label>
                 <div class="col-xs-8">
-                    <select class="form-control">
-                        <option>Sort By Name(asc)</option>
-                        <option>Sort By Name(desc)</option>
-                        <option>Sort By Phone No(asc)</option>
-                        <option>Sort By Phone No(desc)</option>
-                        <option>Sort By Email Id(asc)</option>
-                        <option>Sort By Email Id(desc)</option>
+                    <select class="form-control" name="sortSelect" id="sortSelect" ng-model="contacts.selectVal">
+                        <option ng-repeat="option in contacts.availableOptions" value="{{option.val}}">
+                            {{option.name}}</option>
                     </select>
                 </div>
-            </div>
+            </div>  
         </div>
         <div class="col-xs-1">
             <button type="button" class="btn btn-default" ui-sref="add">
@@ -37,7 +33,7 @@
 </div>
 <!-- Contact List Section -->
 <div class="row" style="padding-top:50px;">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ng-repeat="contact in contacts.allContacts">
-    		<contact-profile></contact-profile>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ng-repeat="contact in contacts.allContacts | orderBy: contacts.selectVal | filter : contacts.search as results ">
+        <contact-profile></contact-profile>
     </div>
 </div>

@@ -9,7 +9,6 @@ var contactManagerApp = angular.module('contactManagerApp', ['ui.bootstrap', 'ui
 contactManagerApp.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider
-          .when('/contact/:id', '/contact/:id')
           .otherwise('/contacts')
 
       $stateProvider

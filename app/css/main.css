@@ -19,6 +19,35 @@
     opacity: 50%;
 }
 
-.padded-icon-right{
-	padding-right: 5px;
+.padded-icon-right {
+    padding-right: 5px;
 }
+
+.favbtn {
+    background-color: #63498A;
+}
+
+.favicon{
+    color:yellow;
+}
+
+a {
+  color: #563d7c;
+}
+
+a:hover,
+a:focus {
+  color: #1d1429;
+}
+
+
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  color: #fff;
+  background-color: #563d7c;
+  border-color: #563d7c;
+}
+
+
+

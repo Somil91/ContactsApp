@@ -24,7 +24,7 @@ contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$
     else
       SyncData.addContact(profile.selprofile);
 
-    $state.go('contacts');
+    $state.go('contact');
 
   };
 
