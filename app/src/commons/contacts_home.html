@@ -1,8 +1,43 @@
 <!-- All Contacts Template  -->
-
- <h2 class="page-header text-center">List of contacts</h2>
- <div class="row">
- <div class="col-xs-12 col-md-12 col-lg-12">
- <p>{{contacts.allContacts}}</p>
- </div>
+<h2 class="page-header text-center">List of contacts</h2>
+<!-- Controls Section -->
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <!-- ToolBar Options  -->
+        <!--   <div class="col-xs-8 col-xs-offset-2"> -->
+        <div class="col-xs-4">
+            <input type="text" ng-model="contacts.search" placeholder="Search" class="form-control">
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="inputPassword" class="col-xs-2 control-label" style="padding-top: 6px;">Sort By:</label>
+                <div class="col-xs-8">
+                    <select class="form-control">
+                        <option>Sort By Name(asc)</option>
+                        <option>Sort By Name(desc)</option>
+                        <option>Sort By Phone No(asc)</option>
+                        <option>Sort By Phone No(desc)</option>
+                        <option>Sort By Email Id(asc)</option>
+                        <option>Sort By Email Id(desc)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Contact List Section -->
+<div class="row" style="padding-top:50px;">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ng-repeat="contact in contacts.allContacts">
+    		<contact-profile></contact-profile>
+    </div>
 </div>

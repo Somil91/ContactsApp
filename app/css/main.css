@@ -12,3 +12,13 @@
     background-repeat: repeat-x;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
 }
+
+.divider {
+    padding-top: 20px;
+    border-bottom: 2px solid grey;
+    opacity: 50%;
+}
+
+.padded-icon-right{
+	padding-right: 5px;
+}

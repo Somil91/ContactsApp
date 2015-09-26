@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body  ng-app="contactManagerApp">
+<body ng-app="contactManagerApp">
     <header>
         <div class="container-fluid app-header">
             <h1>Contact Manager</h1>
@@ -22,10 +22,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-            	<div ui-view style="padding-top: 10px;"></div>
+                <div ui-view style="padding-top: 10px;"></div>
             </div>
         </div>
-
     </div>
 </body>
 <!-- Angular Dependencies -->
@@ -35,5 +34,8 @@
 <!-- Contact App Modules -->
 <script src="src/index.js"></script>
 <script src="src/commons/mainController.js"></script>
+<script src="src/commons/syncDataService.js"></script>
+<script src="src/contactProfile/contactProfileDirective.js"></script>
+<script src="src/contactProfile/contactProfileController.js"></script>
 
 </html>
