@@ -17,7 +17,7 @@ contactManagerApp.service('SyncData', ['$http', '$q',
         var deferred = $q.defer();
         $http.get(url)
                 .then(function(response) {
-                  if (syncServiceObject.allContacts.length <= 0)
+                   if (syncServiceObject.allContacts.length <= 0)
                       syncServiceObject.allContacts = response.data;
                   deferred.resolve(syncServiceObject.allContacts);
                 }).catch(function(data) {
@@ -32,7 +32,7 @@ contactManagerApp.service('SyncData', ['$http', '$q',
         var selObj = {};
         for (var i = 0; i < syncServiceObject.allContacts.length; i++) {
           if (syncServiceObject.allContacts[i].id === parseInt(id)) {
-            selObj = syncServiceObject.allContacts[i];
+            selObj = angular.merge({},syncServiceObject.allContacts[i]);
             break;
           }
         }

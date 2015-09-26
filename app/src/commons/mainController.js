@@ -21,6 +21,8 @@ contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', fu
     val: 'email'
   }];
 
+  contacts.showFavFlag = false;
+
   SyncData.getInitalData('./data/contacts.json')
         .then(function(data) {
           console.log('data Found Successfully all Contacts');
@@ -37,4 +39,27 @@ contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', fu
     contacts.allContacts = SyncData.addToFavorites(contactObj);
   }
 
+  contacts.showFav = function(){
+      contacts.showFavFlag = !contacts.showFavFlag;
+   }
+
 }]);
+
+contactManagerApp.filter('Favorite', function() {
+  return function(input, showFavorite) {
+    input = input || [];
+    var out = [];
+    if (showFavorite) {
+      for (var i = 0; i < input.length; i++) {
+        if (input[i].favourite === showFavorite)
+            out.push(input[i]);
+      }
+      return out;
+    } else {
+      return input;
+      // conditional based on optional argument
+    }
+
+  };
+});
+

@@ -28,4 +28,9 @@ contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$
 
   };
 
+  profile.cancel = function(){
+    $state.go('contact');
+  }
+
+
   }]);

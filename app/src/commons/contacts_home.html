@@ -20,20 +20,20 @@
             </div>  
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" ui-sref="add">
+            <button type="button" class="btn btn-default " ui-sref="add" tooltip-placement="bottom" tooltip="Add a contact">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <button type="button" class="btn btn-default favbtn" ng-click="contacts.showFav()" tooltip-placement="bottom" tooltip="Show favorites">
+                <span class="glyphicon glyphicon-star favicon" aria-hidden="true"></span>
             </button>
         </div>
     </div>
 </div>
 <!-- Contact List Section -->
 <div class="row" style="padding-top:50px;">
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ng-repeat="contact in contacts.allContacts | orderBy: contacts.selectVal | filter : contacts.search as results ">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" ng-repeat="contact in contacts.allContacts | orderBy: contacts.selectVal | Favorite: contacts.showFavFlag | filter : contacts.search as results ">
         <contact-profile></contact-profile>
     </div>
 </div>

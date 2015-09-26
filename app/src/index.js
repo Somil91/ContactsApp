@@ -4,7 +4,7 @@
 
 'use strict'
 
-var contactManagerApp = angular.module('contactManagerApp', ['ui.bootstrap', 'ui.router']);
+var contactManagerApp = angular.module('contactManagerApp', ['ui.bootstrap', 'ui.router','ngMessages']);
 
 contactManagerApp.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
