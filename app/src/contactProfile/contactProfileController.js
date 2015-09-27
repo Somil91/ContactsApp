@@ -2,8 +2,8 @@
  * contactProfileController
  */
 
-contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$stateParams','$state',
-  function($scope, SyncData, $stateParams, $state) {
+contactManagerApp.controller('contactProfileController', ['SyncData','$stateParams','$state',
+  function(SyncData, $stateParams, $state) {
 
     var profile = this;
     profile.selprofile = {};

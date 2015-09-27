@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header low">
+<div class="header high">
     <h1>Code coverage report for <span class="entity">src\contactProfile\contactProfileController.js</span></h1>
     <h2>
-        Statements: <span class="metric">5.88% <small>(1 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">0% <small>(0 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">5.88% <small>(1 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(17 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(3 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(17 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/contactProfile/</a> &#187; contactProfileController.js</div>
@@ -68,31 +68,31 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,34 +101,34 @@
  * contactProfileController
  */
 &nbsp;
-contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$stateParams','$state',
-<span class="fstat-no" title="function not covered" >  function($scope, SyncData, $stateParams, $state) {</span>
+contactManagerApp.controller('contactProfileController', ['SyncData','$stateParams','$state',
+  function(SyncData, $stateParams, $state) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var profile = this;</span>
-<span class="cstat-no" title="statement not covered" >    profile.selprofile = {};</span>
-<span class="cstat-no" title="statement not covered" >    profile.id = $stateParams.id;</span>
-<span class="cstat-no" title="statement not covered" >    if (profile.id) {</span>
-<span class="cstat-no" title="statement not covered" >      profile.selprofile = SyncData.findSelectedContact(profile.id);</span>
-<span class="cstat-no" title="statement not covered" >      profile.bannerText = 'Edit Contact';</span>
-<span class="cstat-no" title="statement not covered" >      profile.addedit = true;</span>
+    var profile = this;
+    profile.selprofile = {};
+    profile.id = $stateParams.id;
+    if (profile.id) {
+      profile.selprofile = SyncData.findSelectedContact(profile.id);
+      profile.bannerText = 'Edit Contact';
+      profile.addedit = true;
     } else {
-<span class="cstat-no" title="statement not covered" >      profile.bannerText = 'Add Contact';</span>
-<span class="cstat-no" title="statement not covered" >      profile.addedit = false;</span>
+      profile.bannerText = 'Add Contact';
+      profile.addedit = false;
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    profile.editaddProfile = <span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >    if (profile.addedit)</span>
-<span class="cstat-no" title="statement not covered" >      SyncData.editContact(profile.selprofile);</span>
+    profile.editaddProfile = function() {
+    if (profile.addedit)
+      SyncData.editContact(profile.selprofile);
 &nbsp;
     else
-<span class="cstat-no" title="statement not covered" >      SyncData.addContact(profile.selprofile);</span>
+      SyncData.addContact(profile.selprofile);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    $state.go('contact');</span>
+    $state.go('contact');
 &nbsp;
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  profile.cancel = <span class="fstat-no" title="function not covered" >function(){</span></span>
-<span class="cstat-no" title="statement not covered" >    $state.go('contact');</span>
+  profile.cancel = function(){
+    $state.go('contact');
   }
 &nbsp;
 &nbsp;
@@ -138,7 +138,7 @@ contactManagerApp.controller('contactProfileController', ['$scope','SyncData','$
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Sep 27 2015 11:03:04 GMT+0530 (India Standard Time)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Sep 27 2015 13:10:07 GMT+0530 (India Standard Time)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

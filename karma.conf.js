@@ -7,6 +7,7 @@ module.exports = function(config) {
             //Standard Libs
             './node_modules/angular/angular.js',
             './node_modules/angular-mocks/angular-mocks.js',
+            '.node_modules/angular-resource/angular-resource.js',
             './node_modules/angular-messages/angular-messages.js',
             './node_modules/angular-ui-router/build/angular-ui-router.js',
             './app/libs/ui-bootstrap-tpls-0.13.4.js',
@@ -16,8 +17,8 @@ module.exports = function(config) {
             './app/src/commons/*.js',
             './app/src/contactProfile/*.js',
 
-            //Html Files
-            "./app/src/contactProfile/profileView/*.html",
+      /*      //Html Files
+            "./app/src/contactProfile/contactProfileTemplate.html",*/
 
             // Test Files
             './app/test/commons/*.js',
@@ -32,9 +33,7 @@ module.exports = function(config) {
             './app/src/contactProfile/*.js': ['coverage'],
 
             //Directive templates to be compiled
-            // './sentinel_admin_console/*.html': ['ng-html2js'],
-            // './app/src/contactProfile/profileView.html': ['ng-html2js'],
-            './contacts_manager_app/src/contactProfile/profileView.html': ['ng-html2js']
+            /*'./app/src/contactProfile/contactProfileTemplate.html': ['ng-html2js']*/
         },
 
 
@@ -44,11 +43,11 @@ module.exports = function(config) {
         // // add coverage to reporters
         reporters: ['progress', 'coverage'],
 
-        ngHtml2JsPreprocessor: {
+       /* ngHtml2JsPreprocessor: {
             // create a single module that contains templates from all the files
-            stripPrefix: 'contacts_manager_app/',
-            moduleName: 'contactApp.Templates'
-        },
+            stripPrefix: 'app/',
+            moduleName: 'contactAppTemplates'
+        },*/
         // // tell karma how you want the coverage results
         coverageReporter: {
             type: 'html',
