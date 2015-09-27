@@ -1,9 +1,13 @@
+/**
+ * mainController test cases
+ */
+
 describe('Testing mainController ', function() {
   var contacts;
 
   beforeEach(module('contactManagerApp'));
 
-  beforeEach(inject(function(_$controller_, _$q_,_$httpBackend_,_$rootScope_, _$injector_) {
+  beforeEach(inject(function(_$controller_, _$q_, _$httpBackend_, _$rootScope_, _$injector_) {
     this.$controller = _$controller_;
     this.$httpBackend = _$httpBackend_;
     this.$injector = _$injector_;
@@ -94,8 +98,6 @@ describe('Testing mainController ', function() {
     this.$httpBackend.flush();
 
     getInitialData.resolve(mockContactData);
-
-
 
     this.$scope.$digest();
     expect(contacts.availableOptions).toEqual(mockavailableOptions);

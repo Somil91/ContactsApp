@@ -1,3 +1,7 @@
+/**
+ * Favorite Filter test cases
+ */
+
 describe('Favorite filter', function() {
   var $filter, inputContacts = [{
     'id': 1,
@@ -62,7 +66,7 @@ describe('Favorite filter', function() {
   }]);
   });
 
-   it('returns all contacts when passed false as parameter', function() {
+  it('returns all contacts when passed false as parameter', function() {
     var favoriteFilter = $filter('Favorite');
     expect(favoriteFilter(inputContacts, false)).toEqual(inputContacts);
   });

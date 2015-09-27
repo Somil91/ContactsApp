@@ -1,3 +1,7 @@
+/**
+ * contact Manager App Module Test Cases
+ */
+
 describe('Testing contactManagerAppModule', function() {
   describe('contactManagerApp', function() {
 

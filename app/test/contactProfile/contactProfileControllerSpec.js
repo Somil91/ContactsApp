@@ -1,3 +1,7 @@
+/**
+ * contactProfileController test cases
+ */
+
 describe('Testing contactProfileController ', function() {
   var element
   var that;
@@ -18,8 +22,8 @@ describe('Testing contactProfileController ', function() {
     this.contactProfileController = this.$controller('contactProfileController', {
       SyncData: this.SyncData,
       $stateParams: {},
-      $state: {'go':function(){
-        console.log("go to desired state");
+      $state: {'go': function() {
+        console.log('go to desired state');
       }}
     });
 
@@ -37,7 +41,7 @@ describe('Testing contactProfileController ', function() {
       'linkedIn': 'http://linkenIn.com'
     };
 
-      /*Deferred Objects*/
+    /*Deferred Objects*/
     getInitialData = this.$q.defer();
     spyOn(this.SyncData, 'findSelectedContact').and.returnValue(mockSingleContactData);
     spyOn(this.SyncData, 'addContact').and.callThrough();
@@ -57,7 +61,7 @@ describe('Testing contactProfileController ', function() {
     this.$stateParams['id'] = 1;
     profileCtrl = this.$controller('contactProfileController', {
       SyncData: this.SyncData,
-      $stateParams: {'id':1},
+      $stateParams: {'id': 1},
       $state: {}
     });
     expect(profileCtrl.selprofile).toEqual(mockSingleContactData);
@@ -81,14 +85,14 @@ describe('Testing contactProfileController ', function() {
     expect(this.SyncData.addContact).not.toHaveBeenCalled();
   });
 
-   it('Expect profileEdit to call function Cancel', function() {
+  it('Expect profileEdit to call function Cancel', function() {
     profile.cancel();
   });
-/*
-it('Expect profileEdit to call edit contact function of SyncData', function() {
-    profile.addedit = true;
-    profile.editaddProfile();
-    expect(this.SyncData.editContact).toHaveBeenCalled();
-    expect(this.SyncData.addContact).not.toHaveBeenCalled();
-  });*/
+  /*
+  it('Expect profileEdit to call edit contact function of SyncData', function() {
+      profile.addedit = true;
+      profile.editaddProfile();
+      expect(this.SyncData.editContact).toHaveBeenCalled();
+      expect(this.SyncData.addContact).not.toHaveBeenCalled();
+    });*/
 });

@@ -2,6 +2,8 @@
  * mainAppController
  */
 
+'use strict'
+
 contactManagerApp.controller('contactsListController', ['SyncData', function(SyncData) {
 
   var contacts = this;
@@ -36,12 +38,13 @@ contactManagerApp.controller('contactsListController', ['SyncData', function(Syn
     contacts.allContacts = SyncData.addToFavorites(contactObj);
   }
 
-  contacts.showFav = function(){
-      contacts.showFavFlag = !contacts.showFavFlag;
-   }
+  contacts.showFav = function() {
+    contacts.showFavFlag = !contacts.showFavFlag;
+  }
 
 }]);
 
+/*Favorite filter: to filter out favorite contacts*/
 contactManagerApp.filter('Favorite', function() {
   return function(input, showFavorite) {
     var out = [];

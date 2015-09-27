@@ -17,23 +17,16 @@ module.exports = function(config) {
             './app/src/commons/*.js',
             './app/src/contactProfile/*.js',
 
-      /*      //Html Files
-            "./app/src/contactProfile/contactProfileTemplate.html",*/
-
             // Test Files
             './app/test/commons/*.js',
             './app/test/mocks/*.js',
             './app/test/contactProfile/*.js',
         ],
-        // here we specify which of the files we want to appear in the coverage report
         preprocessors: {
             //Coverage
             './app/src/*.js': ['coverage'],
             './app/src/commons/*.js': ['coverage'],
             './app/src/contactProfile/*.js': ['coverage'],
-
-            //Directive templates to be compiled
-            /*'./app/src/contactProfile/contactProfileTemplate.html': ['ng-html2js']*/
         },
 
 
@@ -42,12 +35,7 @@ module.exports = function(config) {
         plugins: ['karma-jasmine', 'karma-chrome-launcher', 'karma-coverage', 'karma-ng-html2js-preprocessor'],
         // // add coverage to reporters
         reporters: ['progress', 'coverage'],
-
-       /* ngHtml2JsPreprocessor: {
-            // create a single module that contains templates from all the files
-            stripPrefix: 'app/',
-            moduleName: 'contactAppTemplates'
-        },*/
+        
         // // tell karma how you want the coverage results
         coverageReporter: {
             type: 'html',
