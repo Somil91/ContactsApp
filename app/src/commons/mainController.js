@@ -2,7 +2,7 @@
  * mainAppController
  */
 
-contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', function($scope, SyncData) {
+contactManagerApp.controller('contactsListController', ['SyncData', function(SyncData) {
 
   var contacts = this;
   contacts.allContacts = [];
@@ -23,12 +23,9 @@ contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', fu
 
   contacts.showFavFlag = false;
 
-  SyncData.getInitalData('./data/contacts.json')
+  SyncData.getInitialData('./data/contacts.json')
         .then(function(data) {
-          
           contacts.allContacts = data;
-        }, function(error) {
-          
         });
 
   contacts.deleteContact = function(contactObj) {
@@ -47,7 +44,6 @@ contactManagerApp.controller('contactsListController', ['$scope', 'SyncData', fu
 
 contactManagerApp.filter('Favorite', function() {
   return function(input, showFavorite) {
-    input = input || [];
     var out = [];
     if (showFavorite) {
       for (var i = 0; i < input.length; i++) {
