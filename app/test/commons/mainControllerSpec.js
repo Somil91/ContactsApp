@@ -1,13 +1,11 @@
 describe('Testing mainController ', function() {
-  var element
-  var that;
   var contacts;
 
   beforeEach(module('contactManagerApp'));
 
-  beforeEach(inject(function(_$controller_, _$q_, _$http_,_$rootScope_,_$injector_) {
+  beforeEach(inject(function(_$controller_, _$q_,_$httpBackend_,_$rootScope_, _$injector_) {
     this.$controller = _$controller_;
-    this.$http = _$http_;
+    this.$httpBackend = _$httpBackend_;
     this.$injector = _$injector_;
     this.$q = _$q_;
     this.$scope = _$rootScope_.$new();
@@ -19,8 +17,7 @@ describe('Testing mainController ', function() {
     });
     contacts = this.mainController;
 
-
-   mockavailableOptions = [{
+    mockavailableOptions = [{
       id: '1',
       name: 'Name',
       val: 'name'
@@ -78,64 +75,48 @@ describe('Testing mainController ', function() {
       'linkedIn': 'http://linkenIn.com'
     }];
 
-
-
     /*Deferred Objects*/
     getInitialData = this.$q.defer();
     spyOn(this.SyncData, 'getInitialData').and.returnValue(getInitialData.promise);
 
     spyOn(this.SyncData, 'deleteContact').and.returnValue(mockContactData);
     spyOn(this.SyncData, 'addToFavorites').and.returnValue(mockContactData);
-    
-
 
   }));
 
-  it('Expect inital Values for mainController', function() {
-  
-    expect(contacts.showFavFlag).toEqual(false);
-    expect(contacts.allContacts).toEqual([]);
-    expect(contacts.selectVal).toEqual(null);
-    expect(contacts.availableOptions).toEqual(mockavailableOptions);
-  });
+  it('Expect initial Values for mainController', function() {
 
-  it('Call SyncData service to get Inital Data', function() {
     expect(contacts.showFavFlag).toEqual(false);
     expect(contacts.allContacts).toEqual([]);
     expect(contacts.selectVal).toEqual(null);
+    this.$httpBackend.expectGET('./data/contacts.json')
+               .respond(200, mockContactData);
+    this.$httpBackend.flush();
+
+    getInitialData.resolve(mockContactData);
+
+
+
+    this.$scope.$digest();
     expect(contacts.availableOptions).toEqual(mockavailableOptions);
   });
 
   it('call showFav to change the favorite tag ',
         function() {
-         contacts.showFav();
+          contacts.showFav();
           expect(contacts.showFavFlag).toEqual(true);
-     });
+        });
 
   it('call SyncData-deleteContact to delete a contact',
         function() {
-         contacts.deleteContact(mockSingleContactData);
+          contacts.deleteContact(mockSingleContactData);
           expect(this.SyncData.deleteContact).toHaveBeenCalled();
-     });
+        });
 
   it('call SyncData-addToFavorites to change a contact to a favorite contact',
         function() {
-         contacts.addToFavorites(mockSingleContactData);
+          contacts.addToFavorites(mockSingleContactData);
           expect(this.SyncData.addToFavorites).toHaveBeenCalled();
-     });
-/*
-  it('getExchangeStocks Function :Exception Case ',
-        function() {
-          this.scope.system.current_exchange_index = '1';
-          this.scope.system.query = 'aa';
-          this.scope.predicate = 'aa';
-          this.scope.reverse = 'aa';
-          getJSONDataPromise.reject(mockReject);
-          this.scope.getExchangeStocks(false);
-          this.scope.$digest();
-          expect(this.scope.system.query).toEqual('aa');
-          expect(this.scope.predicate).toEqual('aa');
-          expect(this.scope.reverse).toEqual('aa');
-          expect(this.SyncData.getJSONData).toHaveBeenCalled();
-        });*/
+        });
+
 });

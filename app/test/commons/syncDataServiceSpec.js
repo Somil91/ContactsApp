@@ -89,6 +89,27 @@ describe('Service: SyncDataService Specs', function() {
       });
     });
 
+  it('Expect getInitialData to return a promise after making a http request and have previous contacts . Success case',
+    function() {
+
+      this.SyncData.allContacts = mockContactData;
+
+      this.$httpBackend.whenGET('./data/contacts.json').respond(200, {
+        'data': mockContactData
+      });
+
+      var promObj = this.SyncData.getInitialData('./data/contacts.json');
+
+      this.$httpBackend.flush();
+
+      promObj.then(function(response) {
+        expect(response.data).not.toBeUndefined();
+        expect(this.SyncData.allContacts).toEqual(mockContactData);
+      }, function() {
+        console.log('failed');
+      });
+    });
+
   it('Expect getInitialData to return a promise after making a http request. Exception case',
     function() {
       this.$httpBackend.whenGET('./data/contacts.json').respond(500, {
